@@ -1,0 +1,30 @@
+{
+  "name": "DeHub NFT Marketplace",
+  "scripts": {
+    "typechain": "hardhat typechain",
+    "test": "hardhat test --show-stack-traces",
+    "coverage": "npm run build && hardhat coverage --temp artifacts --network hardhat --solcoverjs ./.solcover.js",
+    "build": "npm run clean && npm run compile",
+    "clean": "hardhat clean",
+    "compile": "hardhat compile",
+    "prettier": "prettier --write 'contracts/**/*.sol' 'scripts/**/*.ts' 'test/**/*.ts'",
+    "lint": "eslint . --ext .ts --fix && ./node_modules/.bin/solhint -c ./.solhint-ci.json -f table contracts/**/*.sol"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "@openzeppelin/hardhat-upgrades": "^1.21.0",
+    "hardhat": "^2.12.2",
+    "hardhat-contract-sizer": "^2.6.1",
+    "hardhat-gas-reporter": "^1.0.9",
+    "hardhat-preprocessor": "^0.1.5",
+    "prettier": "^2.7.1",
+    "prettier-plugin-solidity": "^1.0.0-rc.1",
+    "solidity-coverage": "^0.8.2"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.8.0",
+    "@openzeppelin/contracts-upgradeable": "^4.8.0",
+    "bignumber.js": "^9.1.0",
+    "dotenv": "^16.0.3"
+  }
+}
