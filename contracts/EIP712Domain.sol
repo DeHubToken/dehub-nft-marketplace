@@ -20,7 +20,9 @@ contract LibEIP712ExchangeDomain is Initializable {
   // solhint-enable var-name-mixedcase
 
   /// @param chainId Chain ID of the network this contract is deployed on.
-  function __LibEIP712ExchangeDomain_init(uint256 chainId) internal onlyInitializing {
+  function __LibEIP712ExchangeDomain_init(
+    uint256 chainId
+  ) internal onlyInitializing {
     DOMAIN_HASH = LibEIP712.hashDomain(
       DOMAIN_NAME,
       DOMAIN_VERSION,
