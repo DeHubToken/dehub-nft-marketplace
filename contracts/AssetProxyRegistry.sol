@@ -14,6 +14,10 @@ contract AssetProxyRegistry is OwnableUpgradeable, IAssetProxyRegistry {
   // Mapping from Asset Proxy Id's to their respective Asset Proxy
   mapping(bytes4 => address) internal _assetProxies;
 
+  function __AssetProxyRegistry_init() public onlyInitializing {
+    __Ownable_init();
+  }
+
   /// @dev Registers an asset proxy to its asset proxy id.
   /// @param assetProxy Address of new asset proxy to register.
   function registerAssetProxy(address assetProxy) external override onlyOwner {

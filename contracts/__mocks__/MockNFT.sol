@@ -23,4 +23,8 @@ contract MockNFT is ERC721 {
     _mint(receiver, newItemId);
     return newItemId;
   }
+
+  function currentTokenId() public view returns (uint256) {
+    return _tokenIds.current();
+  }
 }

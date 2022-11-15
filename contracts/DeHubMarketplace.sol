@@ -4,7 +4,6 @@ pragma solidity ^0.8.4;
 
 import {console} from "hardhat/console.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import {PausableUpgradeable} from "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 import {Refundable} from "./Refundable.sol";
 import {ExchangeCore, LibOrder} from "./ExchangeCore.sol";
@@ -15,9 +14,9 @@ contract DeHubMarketplace is Refundable, ExchangeCore, PausableUpgradeable {
   uint256 public version;
 
   function __DeHubMarketplace_init(uint256 chainId) public initializer {
-    __Ownable_init();
+    __ExchangeCore__init();
     __Pausable_init();
-    __LibEIP712ExchangeDomain_init(chainId);
+    __SignatureValidator_init(chainId);
 
     version = 1;
     console.log("v", version);

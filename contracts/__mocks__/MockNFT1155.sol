@@ -17,4 +17,8 @@ contract MockNFT1155 is ERC1155 {
     _mint(receiver, newItemId, 1, "");
     return newItemId;
   }
+
+  function currentTokenId() public view returns (uint256) {
+    return _tokenIds.current();
+  }
 }

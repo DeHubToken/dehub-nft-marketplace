@@ -35,6 +35,12 @@ abstract contract ExchangeCore is
   /// @return epoc Orders with a salt less than their epoch are considered cancelled
   mapping(address => uint256) public orderEpoch;
 
+  function __ExchangeCore__init() public onlyInitializing {
+    __AssetProxyRegistry_init();
+    __ProtocolFees_init();
+    __MarketplaceRegistry_init();
+  }
+
   /// @dev Fills the input order.
   /// @param order Order struct containing order specifications.
   /// @param signature Proof that order has been created by maker.

@@ -18,6 +18,10 @@ contract ProtocolFees is IProtocolFees, OwnableUpgradeable {
   /// @return 0 Contract to forward protocol fees to.
   address public protocolFeeCollector;
 
+  function __ProtocolFees_init() public onlyInitializing {
+    __Ownable_init();
+  }
+
   /// @dev Allows the owner to update the protocol fee multiplier.
   /// @param updatedProtocolFeeMultiplier The updated protocol fee multiplier.
   function setProtocolFeeMultiplier(

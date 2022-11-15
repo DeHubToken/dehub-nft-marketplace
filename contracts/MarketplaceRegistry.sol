@@ -27,6 +27,10 @@ contract MarketplaceRegistry is OwnableUpgradeable {
 
   mapping(bytes32 => Marketplace) marketplaces;
 
+  function __MarketplaceRegistry_init() public onlyInitializing {
+    __Ownable_init();
+  }
+
   function marketplaceDistribution(
     bool _distributeMarketplaceFees
   ) external onlyOwner {

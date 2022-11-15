@@ -14,6 +14,10 @@ abstract contract SignatureValidator is
   using LibBytes for bytes;
   using LibOrder for LibOrder.Order;
 
+  function __SignatureValidator_init(uint256 chainId) public onlyInitializing {
+    __LibEIP712ExchangeDomain_init(chainId);
+  }
+
   /// @dev Verifies that a hash has been signed by the given signer.
   /// @param hash Any 32-byte hash.
   /// @param signerAddress Address that should have signed the given hash.

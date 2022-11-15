@@ -2,9 +2,9 @@
 
 pragma solidity ^0.8.4;
 
-import {OwnableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Authorizable is OwnableUpgradeable {
+contract Authorizable is Ownable {
   /// @dev Only authorized addresses can invoke functions with this modifier.
   modifier onlyAuthorized() {
     require(authorized[msg.sender], "SENDER_NOT_AUTHORIZED");
